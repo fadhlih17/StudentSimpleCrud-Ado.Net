@@ -1,0 +1,29 @@
+CREATE PROCEDURE GetAllStudents
+AS 
+    BEGIN 
+        SELECT * FROM Students
+    END 
+    
+CREATE PROCEDURE GetStudentById (@id INT)
+AS 
+    BEGIN 
+        SELECT * FROM Students WHERE Id = @id
+    end
+
+CREATE PROCEDURE InsertStudent (@name VARCHAR(50), @address VARCHAR(50), @age INT)
+AS 
+    BEGIN 
+        INSERT INTO Students (Name, Address, Age) VALUES (@name, @address, @age)
+    end
+
+CREATE PROCEDURE UpdateStudent (@id INT, @name VARCHAR(50), @address VARCHAR(50), @age INT)
+AS 
+    BEGIN 
+        UPDATE Students SET Name = @name, Address = @address, Age = @age WHERE Id = @id
+    end
+    
+CREATE PROCEDURE DeleteStudent (@id INT)
+AS 
+    BEGIN 
+        DELETE FROM Students WHERE Id = @id
+    end
